@@ -1,19 +1,27 @@
 package factory_pattern.src.abstractfactory;
 
-import factory_pattern.src.abstractfactory.src.DarkFactory;
-import factory_pattern.src.abstractfactory.src.LightFactory;
-import factory_pattern.src.abstractfactory.src.UIFactory;
+import factory_pattern.src.abstractfactory.src.IndiaIndiaFactory;
+import factory_pattern.src.abstractfactory.src.InternationalPaymentFactory;
+import factory_pattern.src.abstractfactory.src.Payment;
+import factory_pattern.src.abstractfactory.src.PaymentFactory;
+import factory_pattern.src.abstractfactory.src.TaxCalculator;
 
 public class Main {
     public static void main(String[] args) {
-        // Choose Dark Theme
-        UIFactory factory = new DarkFactory();
-        factory.createButton().render();
-        factory.createCheckbox().render();
+        PaymentFactory factory = new IndiaIndiaFactory();
+        Payment payment = factory.createPaymentMethod();
+        TaxCalculator taxCalculator = factory.createTaxCalculator();
 
-        // Choose Light Theme
-        factory = new LightFactory();
-        factory.createButton().render();
-        factory.createCheckbox().render();
+        payment.pay(1000);
+        double tax = taxCalculator.calculateTax(1000);
+        System.out.println("Tax calculated: " + tax);
+
+        PaymentFactory factory2 = new InternationalPaymentFactory();
+        Payment payment2 = factory2.createPaymentMethod();
+        TaxCalculator taxCalculator2 = factory2.createTaxCalculator();
+
+        payment2.pay(2000);
+        double tax2 = taxCalculator2.calculateTax(2000);
+        System.out.println("Tax calculated: " + tax2);
     }
 }
