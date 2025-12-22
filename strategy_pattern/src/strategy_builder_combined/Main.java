@@ -1,58 +1,70 @@
 /**
- * The real problem the Strategy + Factory combination solves:
+ * The real problem the Observer pattern solves:
  *
- * Strategy alone removes conditional logic from business behavior,
- * but it does NOT solve how the correct strategy is chosen.
+ * Some objects change state, and multiple independent components
+ * must react to those changes without tightly coupling to the source.
  *
- * Without a Factory, client code still decides which strategy to use:
+ * Without Observer, the subject directly calls each dependent:
  *
- *   DiscountStrategy strategy;
- *   if (type.equals("STUDENT")) {
- *       strategy = new StudentDiscount();
- *   } else if (type.equals("FESTIVAL")) {
- *       strategy = new FestivalDiscount();
+ *   class YouTubeChannel {
+ *       void uploadVideo(String title) {
+ *           sendEmail();
+ *           sendNotification();
+ *           updateAnalytics();
+ *       }
  *   }
  *
  * Why that's bad:
- * - Client code knows concrete strategy classes.
- * - Strategy selection logic is duplicated across callers.
- * - Adding a new strategy requires changing client code.
+ * - Subject knows all concrete dependents.
+ * - Adding or removing reactions requires modifying subject code.
+ * - Business logic is mixed with side effects.
+ * - Violates Open/Closed Principle.
  *
  * The deeper issue:
- * - Behavior variation is separated (Strategy),
- *   but object selection is still leaking into client logic.
+ * - State change logic and reaction logic are tightly coupled.
  *
- * Strategy + Factory — core idea:
- * - Strategy encapsulates interchangeable behavior.
- * - Factory encapsulates the decision of which strategy to create.
- * - Client depends only on abstractions, never on concrete classes.
+ * Observer pattern — core idea:
+ * - Define a one-to-many dependency between a Subject and Observers.
+ * - Observers subscribe to the Subject to receive updates.
+ * - When the Subject changes state, all subscribed Observers are notified.
+ *
+ * Subject does NOT know what concrete actions observers perform.
  *
  * Flow:
- *   1. Client asks Factory for a strategy (based on input/config).
- *   2. Factory returns the appropriate DiscountStrategy.
- *   3. Context (BillingService) uses the strategy polymorphically.
+ *   1. Observers (Subscribers) register themselves with the Subject.
+ *   2. Subject changes state (video upload / community post).
+ *   3. Subject notifies all registered Observers.
+ *   4. Observers react independently.
  *
  * Example usage:
- *   DiscountStrategy strategy =
- *       DiscountFactory.getDiscountType("STUDENT_DISCOUNT");
+ *   YouTubeChannel channel = new YouTubeChannel("ManishTech");
  *
- *   BillingService billing = new BillingService(strategy);
- *   double finalAmount = billing.calculateFinalAmount(1000);
+ *   Observer s1 = new Subscriber("Ajay");
+ *   Observer s2 = new Subscriber("Akash");
+ *
+ *   channel.addObserver(s1);
+ *   channel.addObserver(s2);
+ *
+ *   channel.uploadVideo("Observer Design Pattern Explained!");
  *
  * Benefits:
- * - No conditional logic in client code.
- * - New strategies can be added without modifying existing callers.
- * - Strategy selection is centralized and reusable.
- * - Follows Open/Closed Principle and Dependency Inversion.
+ * - Subject and observers are loosely coupled.
+ * - New observers can be added without changing subject code.
+ * - Observers can be added or removed at runtime.
+ * - Enables event-driven and extensible designs.
  *
  * Important notes:
- * - Strategy handles "how the behavior works".
- * - Factory handles "which behavior to use".
- * - This combination is extremely common in interview and real systems.
+ * - Observer handles "who reacts to a change".
+ * - Subject handles "when a change happens".
+ * - Order of notification should not be relied upon unless explicitly managed.
  *
- * NOTE: Use this pattern when behavior varies AND the selection logic
- * should be centralized or configurable.
+ * NOTE:
+ * - Classic Observer is synchronous and in-process.
+ * - In large systems, this pattern is often replaced by async
+ *   event systems (Kafka, message queues, Spring Events),
+ *   but the conceptual model remains the same.
  */
+
 
 package strategy_pattern.src.strategy_builder_combined;
 

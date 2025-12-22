@@ -18,6 +18,7 @@ public class Main {
 
         channel.uploadVideo("Observer Design Pattern Explained!");
         channel.uploadVideo("Java Multithreading Tutorial");
+        channel.uploadCommunityPost("What should I update next, Kindly comment!");
 
         // Bob unsubscribes
         channel.removeObserver(s2);

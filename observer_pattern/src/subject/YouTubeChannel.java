@@ -1,10 +1,9 @@
 package observer_pattern.src.subject;
 
-import observer_pattern.src.observer.Observer;
-import observer_pattern.src.observer.Subject;
-
 import java.util.ArrayList;
 import java.util.List;
+import observer_pattern.src.observer.Observer;
+import observer_pattern.src.observer.Subject;
 
 public class YouTubeChannel implements Subject {
     private List<Observer> observers = new ArrayList<>();
@@ -35,5 +34,10 @@ public class YouTubeChannel implements Subject {
     public void uploadVideo(String title) {
         System.out.println(channelName + " uploaded: " + title);
         notifyObservers("New Video: " + title);
+    }
+
+    public void uploadCommunityPost(String title) {
+        System.out.println(channelName + " community post: " + title);
+        notifyObservers("New Community Post: " + title);
     }
 }
