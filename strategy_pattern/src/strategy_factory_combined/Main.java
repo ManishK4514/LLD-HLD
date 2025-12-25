@@ -66,11 +66,11 @@
  */
 
 
-package strategy_pattern.src.strategy_builder_combined;
+package strategy_pattern.src.strategy_factory_combined;
 
-import strategy_pattern.src.strategy_builder_combined.src.strategy.src.BillingService;
-import strategy_pattern.src.strategy_builder_combined.src.strategy.src.DiscountFactory;
-import strategy_pattern.src.strategy_builder_combined.src.strategy.src.DiscountStrategy;
+import strategy_pattern.src.strategy_factory_combined.src.strategy.src.BillingService;
+import strategy_pattern.src.strategy_factory_combined.src.strategy.src.DiscountFactory;
+import strategy_pattern.src.strategy_factory_combined.src.strategy.src.DiscountStrategy;
 
 
 public class Main {

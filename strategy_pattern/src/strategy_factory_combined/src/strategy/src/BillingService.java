@@ -1,4 +1,4 @@
-package strategy_pattern.src.strategy_builder_combined.src.strategy.src;
+package strategy_pattern.src.strategy_factory_combined.src.strategy.src;
 
 public class BillingService {
     private DiscountStrategy discountStrategy;
