@@ -1,7 +1,7 @@
-package structural_design_patterns.adapter_pattern.src.adapter.src;
+package structural_design_patterns.adapter.adapter_factory_combined.src;
 
 public class PaypalAPIAdapter implements PaymentProcessor {
-    private PaypalAPI paypal = new PaypalAPI();
+    private final PaypalAPI paypal = new PaypalAPI();
 
     @Override
     public void pay(double amount) {

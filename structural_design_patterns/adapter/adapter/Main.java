@@ -42,11 +42,11 @@
  * whose interfaces cannot be changed to match your application's design.
  */
 
-package structural_design_patterns.adapter_pattern.src.adapter;
+package structural_design_patterns.adapter.adapter;
 
-import structural_design_patterns.adapter_pattern.src.adapter.src.PaymentProcessor;
-import structural_design_patterns.adapter_pattern.src.adapter.src.PaypalAPIAdapter;
-import structural_design_patterns.adapter_pattern.src.adapter.src.RazorPaySDKAdapter;
+import structural_design_patterns.adapter.adapter.src.PaymentProcessor;
+import structural_design_patterns.adapter.adapter.src.PaypalAPIAdapter;
+import structural_design_patterns.adapter.adapter.src.RazorPaySDKAdapter;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
-package structural_design_patterns.decorator_pattern.src.decorator;
-import structural_design_patterns.decorator_pattern.src.pizza.Pizza;
+package structural_design_patterns.decorator.src.decorator;
+import structural_design_patterns.decorator.src.pizza.Pizza;
 
 public class OliveDecorator extends PizzaDecorator {
     public OliveDecorator(Pizza pizza) {

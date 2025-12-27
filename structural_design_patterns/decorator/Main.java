@@ -59,13 +59,13 @@
  * - It is commonly used in pricing, logging, security, and UI frameworks.
  */
 
-package structural_design_patterns.decorator_pattern;
+package structural_design_patterns.decorator;
 
-import structural_design_patterns.decorator_pattern.src.decorator.CheeseDecorator;
-import structural_design_patterns.decorator_pattern.src.decorator.MushroomDecorator;
-import structural_design_patterns.decorator_pattern.src.decorator.OliveDecorator;
-import structural_design_patterns.decorator_pattern.src.pizza.Pizza;
-import structural_design_patterns.decorator_pattern.src.pizza.PlainPizza;
+import structural_design_patterns.decorator.src.decorator.CheeseDecorator;
+import structural_design_patterns.decorator.src.decorator.MushroomDecorator;
+import structural_design_patterns.decorator.src.decorator.OliveDecorator;
+import structural_design_patterns.decorator.src.pizza.Pizza;
+import structural_design_patterns.decorator.src.pizza.PlainPizza;
 
 class Main {
 

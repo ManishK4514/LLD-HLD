@@ -1,4 +1,4 @@
-package structural_design_patterns.adapter_pattern.src.adapter.src;
+package structural_design_patterns.adapter.adapter.src;
 
 public interface PaymentProcessor {
     void pay(double amount);

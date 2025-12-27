@@ -56,10 +56,10 @@
  * and the provider selection logic should be centralized or configurable.
  */
 
-package structural_design_patterns.adapter_pattern.src.adapter_factory_combined;
+package structural_design_patterns.adapter.adapter_factory_combined;
 
-import structural_design_patterns.adapter_pattern.src.adapter_factory_combined.src.PaymentFactory;
-import structural_design_patterns.adapter_pattern.src.adapter_factory_combined.src.PaymentProcessor;
+import structural_design_patterns.adapter.adapter_factory_combined.src.PaymentFactory;
+import structural_design_patterns.adapter.adapter_factory_combined.src.PaymentProcessor;
 
 public class Main {
     public static void main(String[] args) {

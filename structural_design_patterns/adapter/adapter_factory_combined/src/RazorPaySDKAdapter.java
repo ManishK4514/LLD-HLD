@@ -1,7 +1,7 @@
-package structural_design_patterns.adapter_pattern.src.adapter.src;
+package structural_design_patterns.adapter.adapter_factory_combined.src;
 
 public class RazorPaySDKAdapter implements PaymentProcessor {
-    private RazorPaySDK razorpay = new RazorPaySDK();
+    private final RazorPaySDK razorpay = new RazorPaySDK();
 
     @Override
     public void pay(double amount) {
