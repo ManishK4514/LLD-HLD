@@ -1,0 +1,8 @@
+package behavioural_design_patterns.strategy_pattern.src.strategy.src;
+
+public class PremiumDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double amount) {
+        return amount * 0.30;
+    }
+}

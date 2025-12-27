@@ -1,0 +1,5 @@
+package structural_design_patterns.adapter_pattern.src.adapter_factory_combined.src;
+
+public interface PaymentProcessor {
+    void pay(double amount);
+}
