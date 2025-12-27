@@ -1,4 +1,4 @@
-package creational_design_patterns.builder.src.builder;
+package creational_design_patterns.builder.src;
 
 public class User {
     private final int id;

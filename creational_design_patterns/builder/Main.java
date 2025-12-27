@@ -1,6 +1,6 @@
 package creational_design_patterns.builder;
 
-import creational_design_patterns.builder.src.builder.User;
+import creational_design_patterns.builder.src.User;
 
 class Main {
     public static void main(String[] args) {
