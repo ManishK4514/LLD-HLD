@@ -1,4 +1,4 @@
-# 🏗️ Low-Level Design (LLD) & High-Level Design (HLD) Repository
+# 🏗️ Low-Level Design (LLD) & High-Level Design (HLD) Repository 
 
 > **A comprehensive collection of design patterns, SOLID principles, and real-world system design implementations in Java.**
 
