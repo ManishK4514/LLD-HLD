@@ -6,8 +6,8 @@ import tic_tac_toe.src.Utilities.Board;
 import tic_tac_toe.src.Utilities.Position;
 
 public class HumanPlayerStrategy implements PlayerStrategy {
-    private Scanner scanner;
-    private String playerName;
+    private final Scanner scanner;
+    private final String playerName;
 
     public HumanPlayerStrategy(String playerName) {
         this.scanner = new Scanner(System.in);

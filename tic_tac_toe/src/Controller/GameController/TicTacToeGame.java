@@ -1,21 +1,22 @@
 package tic_tac_toe.src.Controller.GameController;
 
 import tic_tac_toe.src.CommonEnum.Symbol;
-import tic_tac_toe.src.GameStateHandler.GameState;
+import tic_tac_toe.src.Controller.BoardGames;
 import tic_tac_toe.src.GameStateHandler.ConcreteStates.OWonState;
 import tic_tac_toe.src.GameStateHandler.ConcreteStates.XWonState;
 import tic_tac_toe.src.GameStateHandler.Context.GameContext;
+import tic_tac_toe.src.GameStateHandler.GameState;
 import tic_tac_toe.src.PlayerStrategies.PlayerStrategy;
 import tic_tac_toe.src.Utilities.Board;
 import tic_tac_toe.src.Utilities.Player;
 import tic_tac_toe.src.Utilities.Position;
 
 public class TicTacToeGame implements BoardGames {
-    private Board board;
-    private Player playerX;
-    private Player playerO;
+    private final Board board;
+    private final Player playerX;
+    private final Player playerO;
     private Player currentPlayer;
-    private GameContext gameContext;
+    private final GameContext gameContext;
 
     public TicTacToeGame(PlayerStrategy xStrategy, PlayerStrategy oStrategy, int rows, int cols) {
         this.board = new Board(rows, cols);

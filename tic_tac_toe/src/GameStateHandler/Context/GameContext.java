@@ -1,7 +1,7 @@
 package tic_tac_toe.src.GameStateHandler.Context;
 
-import tic_tac_toe.src.GameStateHandler.GameState;
 import tic_tac_toe.src.GameStateHandler.ConcreteStates.XTurnState;
+import tic_tac_toe.src.GameStateHandler.GameState;
 import tic_tac_toe.src.Utilities.Player;
 
 public class GameContext {
@@ -11,16 +11,12 @@ public class GameContext {
         this.currentState = new XTurnState();
     }
 
-    public void setState(GameState state) {
-        this.currentState = state;
-    }
-
     public boolean isGameOver() {
         return currentState.isGameOver();
     }
 
-    public void next(Player player, boolean hasWon) {
-        currentState.next(this, player, hasWon);
+    public void next(Player player, boolean hasWon, boolean isDraw) {
+        currentState.next(this, player, hasWon, isDraw);
     }
 
     public GameState getCurrentState() {

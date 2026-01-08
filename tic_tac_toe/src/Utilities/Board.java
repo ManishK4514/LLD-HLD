@@ -4,7 +4,7 @@ import tic_tac_toe.src.CommonEnum.Symbol;
 import tic_tac_toe.src.GameStateHandler.Context.GameContext;
 
 public class Board {
-    private Symbol[][] grid;
+    private final Symbol[][] grid;
     private final int rows;
     private final int cols;
 
@@ -13,7 +13,7 @@ public class Board {
         this.cols = cols;
         grid = new Symbol[rows][cols];
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < size; j++) {
+            for (int j = 0; j < cols; j++) {
                 grid[i][j] = Symbol.EMPTY;
             }
         }
@@ -37,7 +37,7 @@ public class Board {
     public void checkGameState(GameContext context, Player currentPlayer) {
         for (int i = 0; i < rows; i++) {
             if (isWinningLine(grid[i])) {
-                context.next(currentPlayer, true);
+                context.next(currentPlayer, true, false);
                 return;
             }            
         }
@@ -48,7 +48,7 @@ public class Board {
                 column[i] = grid[i][j];
             }
             if (isWinningLine(column)) {
-                context.next(currentPlayer, true);
+                context.next(currentPlayer, true, false);
                 return;
             }
         }
@@ -62,15 +62,30 @@ public class Board {
         }
         
         if(diag1[0] != Symbol.EMPTY && isWinningLine(diag1)) {
-            context.next(currentPlayer, true);
+            context.next(currentPlayer, true, false);
             return;
         }
 
         if(diag2[0] != Symbol.EMPTY && isWinningLine(diag2)) {
-            context.next(currentPlayer, true);
-            return;
+            context.next(currentPlayer, true, false);
         }
-    }
+
+        // check for draw or ongoing
+        boolean isDraw = true;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == Symbol.EMPTY) {
+                    isDraw = false;
+                    break;
+                }
+            }
+            if (!isDraw) {
+                break;
+            }
+        }
+
+        context.next(currentPlayer, false, isDraw);
+    }   
 
     private boolean isWinningLine(Symbol[] line) {
         Symbol first = line[0];
